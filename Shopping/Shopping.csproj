@@ -11,5 +11,15 @@
     <Compile Remove="Int.cs" />
     <Compile Remove="RemoveItem.cs" />
     <Compile Remove="IRemoveItem.cs" />
+    <Compile Remove="IGetItemByBarcode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GroceryStore\GroceryStore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Manager\" />
   </ItemGroup>
 </Project>

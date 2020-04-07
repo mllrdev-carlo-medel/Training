@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GroceryStore;
+
 namespace Shopping
 {
-    interface IChangeQuantity
+    interface IItemActions
     {
+        void AddItem(Item item);
         void ChangeQuantity(Item item, int qty);
     }
 }
