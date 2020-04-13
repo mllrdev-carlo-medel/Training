@@ -1,4 +1,4 @@
-﻿namespace GroceryStore
+﻿namespace ShoppingCart.Business
 {
     public class Item
     {
