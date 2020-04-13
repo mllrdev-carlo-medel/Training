@@ -1,6 +1,6 @@
-﻿namespace Shopping
+﻿namespace ShoppingCart.Business.Enums
 {
-    enum Actions
+    public enum Actions
     {
         ADD_ITEM = 1,
         CHANGE_QUANTITY_OF_ITEM = 2,
