@@ -8,16 +8,16 @@ namespace ShoppingCart.Business.View
 {
     public class GroceriesView : IGroceriesView
     {
-        public IManager Groceries { get; }
+        public IManager Manager { get; }
 
         public GroceriesView()
         {
-            Groceries = new GroceriesManager();
+            Manager = new GroceriesManager();
         }
         
         public void ShowItems()
         {
-            List<Item> items = Groceries.GetAll();
+            List<Item> items = Manager.GetAll();
 
             foreach (Item item in items)
             {

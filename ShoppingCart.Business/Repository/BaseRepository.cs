@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ShoppingCart.Business
 {
-    public abstract class ProductsRepository
+    public abstract class BaseRepository
     {
         public abstract List<Item> ProductList { get; }
 

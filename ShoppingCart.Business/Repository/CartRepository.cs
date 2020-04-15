@@ -7,11 +7,11 @@ using System.Collections.Generic;
 
 namespace ShoppingCart.Business
 {
-    public class CartRepository : ProductsRepository, ICartRepository
+    public class CartRepository : BaseRepository, ICartRepository
     {
         public override List<Item> ProductList => Database.CartList;
 
-        public RetVal AddItem(Item item)
+        public bool AddItem(Item item)
         {
             try
             {
@@ -26,15 +26,15 @@ namespace ShoppingCart.Business
                     cartItem.Quantity += 1;
                 }
 
-                return RetVal.SUCCESS;
+                return true;
             }
             catch (Exception)
             {
-                return RetVal.ERROR;
+                return false;
             }
         }
 
-        public RetVal ChangeQuantity(Item item, int quantity)
+        public bool ChangeQuantity(Item item, int quantity)
         {
             try
             {
@@ -49,11 +49,11 @@ namespace ShoppingCart.Business
                     cartItem.Quantity = quantity;
                 }
 
-                return RetVal.SUCCESS;
+                return true;
             }
             catch (Exception)
             {
-                return RetVal.ERROR;
+                return false;
             }
         }
 
@@ -62,4 +62,4 @@ namespace ShoppingCart.Business
             return ProductList.Sum(x => x.Price * x.Quantity);
         }
     }
-}                                                           
+}

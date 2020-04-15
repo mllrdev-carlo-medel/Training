@@ -4,35 +4,18 @@ using ShoppingCart.Business.Repository.Interfaces;
 
 namespace ShoppingCart.Business.Manager
 {
-    public class CartManager : ProductsManager, ICartManager
+    public class CartManager : BaseManager, ICartManager
     {
-        private IRepository productRepository = null;
+       public override IRepository ProductRepository => new CartRepository();
 
-        public override IRepository ProductRepository
+        public bool AddItem(Item item)
         {
-            get
-            {
-                return productRepository;
-            }
-            set
-            {
-                productRepository = value;
-            }
+            return item != null ? ((CartRepository)ProductRepository).AddItem(item) : false;
         }
 
-        public CartManager ()
+        public bool ChangeQuantity(Item item, int quantity)
         {
-            ProductRepository = new CartRepository ();
-        }
-
-        public RetVal AddItem(Item item)
-        {
-            return item != null ? ((CartRepository)ProductRepository).AddItem(item) : RetVal.ERROR;
-        }
-
-        public RetVal ChangeQuantity(Item item, int quantity)
-        {
-            return item != null ? ((CartRepository)ProductRepository).ChangeQuantity(item, quantity) : RetVal.ERROR;
+            return item != null ? ((CartRepository)ProductRepository).ChangeQuantity(item, quantity) : false;
         }
 
         public double ComputeTotalPrice()

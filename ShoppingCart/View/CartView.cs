@@ -9,16 +9,16 @@ namespace ShoppingCart.Business.View
 {
     public class CartView : ICartView
     {
-        public IManager Cart { get; }
+        public IManager Manager { get; }
 
         public CartView()
         {
-            Cart = new CartManager();
+            Manager = new CartManager();
         }
         
         public void AddItem(Item item)
         {
-            if (((CartManager)Cart).AddItem(item) == RetVal.SUCCESS)
+            if (((CartManager)Manager).AddItem(item))
             {
                 Console.WriteLine($"Item {item.Name} succesfully added");
             }
@@ -30,7 +30,7 @@ namespace ShoppingCart.Business.View
 
         public void ChangeQuantity(Item item, int quantity)
         {
-            if (((CartManager)Cart).ChangeQuantity(item, quantity) == RetVal.SUCCESS)
+            if (((CartManager)Manager).ChangeQuantity(item, quantity) && quantity >= 0)
             {
                 Console.WriteLine($"Item {item.Name} quantity changed succesfully");
             }
@@ -42,7 +42,7 @@ namespace ShoppingCart.Business.View
 
         public void ShowItems()
         {
-            List<Item> items = Cart.GetAll();
+            List<Item> items = Manager.GetAll();
             int count = 1;
 
             if (items.Count > 0)
@@ -61,7 +61,7 @@ namespace ShoppingCart.Business.View
 
         public void ShowTotalPrice()
         {
-            Console.WriteLine($"Total Price is Php{((CartManager)Cart).ComputeTotalPrice()}");
+            Console.WriteLine($"Total Price is Php{((CartManager)Manager).ComputeTotalPrice()}");
             Console.WriteLine("Thank you! Please come again.");
         }
     }

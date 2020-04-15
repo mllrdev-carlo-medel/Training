@@ -3,8 +3,8 @@ namespace ShoppingCart.Business.Manager.Interfaces
 {
    public interface ICartManager : IManager
     {
-        RetVal AddItem(Item item);
-        RetVal ChangeQuantity(Item item, int quantity);
+        bool AddItem(Item item);
+        bool ChangeQuantity(Item item, int quantity);
         double ComputeTotalPrice();
     }
 }

@@ -27,7 +27,7 @@ namespace ShoppingCart
 
                 int input;
 
-                input = HelperClass.GetInt(Console.ReadLine());
+                input = Console.ReadLine().ToInt(0);
                 Actions action = (Actions)input;
 
                 Console.Clear();
@@ -37,22 +37,22 @@ namespace ShoppingCart
                     case Actions.ADD_ITEM:
                     {
                         Console.WriteLine("Enter the name of the item");
-                        Item item = ((GroceriesView)groceriesView).Groceries.GetByName(Console.ReadLine());
+                        Item item = ((GroceriesView)groceriesView).Manager.GetByName(Console.ReadLine());
                         ((CartView)cartView).AddItem(item);
                         break;
                     }
-                    case Actions.CHANGE_QUANTITY_OF_ITEM:
+                    case Actions.CHANGE_QUANTITY:
                     {
                         Console.WriteLine("Enter the name of the item");
                         string name = Console.ReadLine();
-                        Item item = ((CartView)cartView).Cart.GetByName(name);
+                        Item item = ((CartView)cartView).Manager.GetByName(name);
 
                         if (item != null)
                         {
                             Console.WriteLine("Enter the new quantity of the item");
-                            int quantity = HelperClass.GetInt(Console.ReadLine());
+                            int quantity = Console.ReadLine().ToInt(-1);
 
-                            if (quantity == (int)RetVal.ERROR)
+                            if (quantity == -1)
                             {
                                 Console.WriteLine("Can't change quantity for that value");
                             }

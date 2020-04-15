@@ -4,9 +4,9 @@ using ShoppingCart.Business.Repository.Interfaces;
 
 namespace ShoppingCart.Business.Manager
 {
-    public abstract class ProductsManager
+    public abstract class BaseManager
     {
-        public abstract IRepository ProductRepository { get; set; }
+        public abstract IRepository ProductRepository { get; }
         
         public List<Item> GetAll ()
         {

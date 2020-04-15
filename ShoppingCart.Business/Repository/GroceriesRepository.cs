@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace ShoppingCart.Business
 {
-    public class GroceriesRepository : ProductsRepository, IGroceriesRepository
+    public class GroceriesRepository : BaseRepository, IGroceriesRepository
     {
         public override List<Item> ProductList => Database.GroceryList;
 
@@ -16,6 +16,8 @@ namespace ShoppingCart.Business
 
         public GroceriesRepository()
         {
+            ProductList.Clear();
+
             string[] readLines = File.ReadAllLines(path);
 
             foreach (string line in readLines.Skip(1))
