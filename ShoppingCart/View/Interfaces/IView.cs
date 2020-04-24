@@ -1,8 +1,8 @@
 ﻿using System;
-namespace ShoppingCart.Business.View.Interfaces
+namespace ShoppingCart.View.Interfaces
 {
     public interface IView
     {
-        void ShowItems();
+        void Show();
     }
 }

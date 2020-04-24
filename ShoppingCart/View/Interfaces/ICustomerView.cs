@@ -1,8 +1,8 @@
 ﻿using System;
 namespace ShoppingCart.View.Interfaces
 {
-    public interface IGroceriesView : IView
+    public interface ICustomerView : IView
     {
-     
+        void LoadData();  
     }
 }

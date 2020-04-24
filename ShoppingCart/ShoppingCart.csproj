@@ -6,13 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ShoppingCart.Business\ShoppingCart.Business.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="log4net" Version="2.0.8" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="Helper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shopping.Business\ShoppingCart.Business.csproj" />
   </ItemGroup>
 </Project>
